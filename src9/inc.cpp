@@ -10,6 +10,10 @@ u32 read_from_IPCFIFO(int test_number)
 
 extern "C" void init_iostate()
 {
+    // set CP15 control register: disables PU, enables ITCM/DTCM
+    // also disables data (bit 2) + instruction (bit 12) cache
+    cp15_set_controlreg(0x00052078);
+
     REG_POWCNT1 = 0x8003; // enable both LCDs, 2D engine A, + display swap
     REG_VRAMCNT_A = 0x80; // bank A in LCDC mode
     REG_DISPCNT = 0x20000; // VRAM display, block A
