@@ -3,4 +3,4 @@
 .arm
 .align 2
 .global txt_buildtime
-txt_buildtime: .asciz "BUILT 06/02/2021 15:32:31"
+txt_buildtime: .asciz "BUILT 06/02/2021 16:21:19"

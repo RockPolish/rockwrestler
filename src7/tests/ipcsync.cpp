@@ -39,6 +39,7 @@ void arm7_ipcsync_test()
     // wait for 5
     if (!wait_ipcsync_value(5)) return;
 
+    magic = 11;
     // send 7, enable IRQ
     *IRQHANDLER = &irqhandler;
     REG_IF = 1 << 16;
@@ -48,7 +49,6 @@ void arm7_ipcsync_test()
     REG_IPCSYNC = (7 << 8) | (1 << 14);
 
     int timeout = 65536;
-    magic = 11;
     while (magic != 0x69)
     {
         if (--timeout == 0)

@@ -2928,9 +2928,9 @@ Disassembly of section .text:
  2004db4:	36302054 			; <UNDEFINED> instruction: 0x36302054
  2004db8:	2f32302f 	svccs	0x0032302f
  2004dbc:	31323032 	teqcc	r2, r2, lsr r0
- 2004dc0:	3a353120 	bcc	2d51248 <__bss_end__+0xd38ab8>
- 2004dc4:	333a3233 	teqcc	r10, #805306371	; 0x30000003
- 2004dc8:	00000031 	andeq	r0, r0, r1, lsr r0
+ 2004dc0:	3a363120 	bcc	2d91248 <__bss_end__+0xd78ab8>
+ 2004dc4:	313a3132 	teqcc	r10, r2, lsr r1
+ 2004dc8:	00000039 	andeq	r0, r0, r9, lsr r0
 
 02004dcc <_Z9check_divPK7DIVtesti>:
  2004dcc:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, r10, r14}
@@ -3505,10 +3505,10 @@ Disassembly of section .text:
  2005660:	e59f5074 	ldr	r5, [pc, #116]	; 20056dc <_Z21run_tests_ipcfifo_irqv+0xac>
  2005664:	e5832208 	str	r2, [r3, #520]	; 0x208
  2005668:	eb0007f4 	bl	2007640 <l_EIC>
- 200566c:	e3a02c0b 	mov	r2, #2816	; 0xb00
- 2005670:	e3a03058 	mov	r3, #88	; 0x58
- 2005674:	e1c628b0 	strh	r2, [r6, #128]	; 0x80
- 2005678:	e5853000 	str	r3, [r5]
+ 200566c:	e3a02058 	mov	r2, #88	; 0x58
+ 2005670:	e3a03c0b 	mov	r3, #2816	; 0xb00
+ 2005674:	e5852000 	str	r2, [r5]
+ 2005678:	e1c638b0 	strh	r3, [r6, #128]	; 0x80
  200567c:	ea000001 	b	2005688 <_Z21run_tests_ipcfifo_irqv+0x58>
  2005680:	e2544001 	subs	r4, r4, #1
  2005684:	0a00000e 	beq	20056c4 <_Z21run_tests_ipcfifo_irqv+0x94>
@@ -3602,26 +3602,26 @@ Disassembly of section .text:
  20057d4:	e203300f 	and	r3, r3, #15
  20057d8:	e353000b 	cmp	r3, #11
  20057dc:	1afffff9 	bne	20057c8 <_Z17run_tests_ipcsyncv+0x7c>
- 20057e0:	e3a03901 	mov	r3, #16384	; 0x4000
- 20057e4:	e1c538b0 	strh	r3, [r5, #128]	; 0x80
- 20057e8:	eb000794 	bl	2007640 <l_EIC>
- 20057ec:	e59f1090 	ldr	r1, [pc, #144]	; 2005884 <_Z17run_tests_ipcsyncv+0x138>
- 20057f0:	e59f0090 	ldr	r0, [pc, #144]	; 2005888 <_Z17run_tests_ipcsyncv+0x13c>
- 20057f4:	e59f5090 	ldr	r5, [pc, #144]	; 200588c <_Z17run_tests_ipcsyncv+0x140>
- 20057f8:	e5810ffc 	str	r0, [r1, #4092]	; 0xffc
- 20057fc:	e3a02801 	mov	r2, #65536	; 0x10000
- 2005800:	e3a03301 	mov	r3, #67108864	; 0x4000000
- 2005804:	e3a00001 	mov	r0, #1
- 2005808:	e3a0104d 	mov	r1, #77	; 0x4d
- 200580c:	e5832214 	str	r2, [r3, #532]	; 0x214
- 2005810:	e1a04002 	mov	r4, r2
- 2005814:	e5832210 	str	r2, [r3, #528]	; 0x210
- 2005818:	e5830208 	str	r0, [r3, #520]	; 0x208
- 200581c:	e5851000 	str	r1, [r5]
+ 20057e0:	e59f609c 	ldr	r6, [pc, #156]	; 2005884 <_Z17run_tests_ipcsyncv+0x138>
+ 20057e4:	e3a0204d 	mov	r2, #77	; 0x4d
+ 20057e8:	e3a03901 	mov	r3, #16384	; 0x4000
+ 20057ec:	e5862000 	str	r2, [r6]
+ 20057f0:	e1c538b0 	strh	r3, [r5, #128]	; 0x80
+ 20057f4:	eb000791 	bl	2007640 <l_EIC>
+ 20057f8:	e59f1088 	ldr	r1, [pc, #136]	; 2005888 <_Z17run_tests_ipcsyncv+0x13c>
+ 20057fc:	e59f0088 	ldr	r0, [pc, #136]	; 200588c <_Z17run_tests_ipcsyncv+0x140>
+ 2005800:	e5810ffc 	str	r0, [r1, #4092]	; 0xffc
+ 2005804:	e3a02801 	mov	r2, #65536	; 0x10000
+ 2005808:	e3a03301 	mov	r3, #67108864	; 0x4000000
+ 200580c:	e3a01001 	mov	r1, #1
+ 2005810:	e5832214 	str	r2, [r3, #532]	; 0x214
+ 2005814:	e1a04002 	mov	r4, r2
+ 2005818:	e5832210 	str	r2, [r3, #528]	; 0x210
+ 200581c:	e5831208 	str	r1, [r3, #520]	; 0x208
  2005820:	ea000001 	b	200582c <_Z17run_tests_ipcsyncv+0xe0>
  2005824:	e2544001 	subs	r4, r4, #1
  2005828:	0a000011 	beq	2005874 <_Z17run_tests_ipcsyncv+0x128>
- 200582c:	e5953000 	ldr	r3, [r5]
+ 200582c:	e5963000 	ldr	r3, [r6]
  2005830:	e353007b 	cmp	r3, #123	; 0x7b
  2005834:	1afffffa 	bne	2005824 <_Z17run_tests_ipcsyncv+0xd8>
  2005838:	e59f2040 	ldr	r2, [pc, #64]	; 2005880 <_Z17run_tests_ipcsyncv+0x134>
@@ -3643,9 +3643,9 @@ Disassembly of section .text:
  2005878:	ebfffd34 	bl	2004d50 <timeout_test>
  200587c:	eaffffea 	b	200582c <_Z17run_tests_ipcsyncv+0xe0>
  2005880:	04000100 	streq	r0, [r0], #-256	; 0xffffff00
- 2005884:	00803000 	addeq	r3, r0, r0
- 2005888:	020056e0 	andeq	r5, r0, #224, 12	; 0xe000000
- 200588c:	0200878c 	andeq	r8, r0, #140, 14	; 0x2300000
+ 2005884:	0200878c 	andeq	r8, r0, #140, 14	; 0x2300000
+ 2005888:	00803000 	addeq	r3, r0, r0
+ 200588c:	020056e0 	andeq	r5, r0, #224, 12	; 0xe000000
 
 02005890 <_Z10check_sqrtPK8SQRTtesti>:
  2005890:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, r10, r14}

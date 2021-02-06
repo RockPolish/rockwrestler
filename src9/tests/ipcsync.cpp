@@ -50,6 +50,7 @@ void run_tests_ipcsync()
     wait_ipcsync_value(11, 0x002);
 
     // now wait for ARM7 to send us interrupt
+    magic = 77;
     REG_IPCSYNC = 1 << 14; // enable IRQ from remote CPU
     l_EIC();
     *IRQHANDLER = &irqhandler;
@@ -58,7 +59,6 @@ void run_tests_ipcsync()
     REG_IME = 1;
 
     int timeout = 65536;
-    magic = 77;
     while (magic != 123)
     {
         if (--timeout == 0)

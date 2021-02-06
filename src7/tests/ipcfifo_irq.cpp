@@ -22,13 +22,15 @@ void arm7_ipcfifo_irq_test()
     REG_IE = 1 << 17;
     REG_IME = 1;
     l_EIC();
+
+    // initialize magic value before sending the value to avoid race conditions
+    magic = 41;
     
     // send 0x8100
     REG_IPCFIFOSEND = 0x8100;
 
     // wait possibly a long time.. don't want to test tight synchronization
     int timeout = 65536 * 16;
-    magic = 41;
     while (magic != 89)
     {
         if (--timeout == 0)

@@ -31,10 +31,10 @@ void run_tests_ipcfifo_irq()
     l_EIC();
 
     // send 11 with IPCSYNC: this starts the test on ARM7 side, it will send to FIFO -> interrupt on our side
+    magic = 88;
     REG_IPCSYNC = 11 << 8;
 
     int timeout = 65536*4;
-    magic = 88;
     while (magic != 13) // IRQ handler changes magic to 13 if it read 0x8100 from FIFO
     {
         if (--timeout == 0)
