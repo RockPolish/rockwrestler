@@ -1221,8 +1221,13 @@ skip7:
 
 .align 2
 .arm
-
     pop {r5-r7, r15}
+@ will contain test_cpu_state and test_cpu_state|1 (thumb bit set)   (could just be initialized in the ROM itself but whatever)
+buffer:
+    .word 0, 0
+
+
+
 
 wrong:
     .word 0x11111111
@@ -1547,6 +1552,3 @@ fail_test_ldm_stm:
     ldmia r12!, {r1-r11, r13-r14}
     b fail_test
 
-@ will contain test_cpu_state and test_cpu_state|1 (thumb bit set)   (could just be initialized in the ROM itself but whatever)
-buffer:
-    .word 0, 0

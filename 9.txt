@@ -3055,12 +3055,12 @@ Disassembly of section .text:
 
 02004ea8 <txt_buildtime>:
  2004ea8:	4c495542 	cfstr64mi	mvdx5, [r9], {66}	; 0x42
- 2004eac:	33302054 	teqcc	r0, #84	; 0x54
+ 2004eac:	35302054 	ldrcc	r2, [r0, #-84]!	; 0xffffffac
  2004eb0:	2f31302f 	svccs	0x0031302f
  2004eb4:	33323032 	teqcc	r2, #50	; 0x32
- 2004eb8:	3a373120 	bcc	2dd1340 <_ZL12sqrt64_tests+0xdc86cc>
- 2004ebc:	353a3534 	ldrcc	r3, [r10, #-1332]!	; 0xfffffacc
- 2004ec0:	00000030 	andeq	r0, r0, r0, lsr r0
+ 2004eb8:	3a313220 	bcc	2c51740 <_ZL12sqrt64_tests+0xc48acc>
+ 2004ebc:	333a3432 	teqcc	r10, #838860800	; 0x32000000
+ 2004ec0:	00000039 	andeq	r0, r0, r9, lsr r0
 
 02004ec4 <_Z9check_divPK7DIVtesti>:
  2004ec4:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, r10, r14}
@@ -5469,7 +5469,7 @@ Disassembly of section .text:
  2007378:	e3150302 	tst	r5, #134217728	; 0x8000000
  200737c:	1afff6aa 	bne	2004e2c <fail_test>
  2007380:	e3a00006 	mov	r0, #6
- 2007384:	e59f2910 	ldr	r2, [pc, #2320]	; 2007c9c <buffer+0x8>
+ 2007384:	e59f2910 	ldr	r2, [pc, #2320]	; 2007c9c <fail_test_ldm_stm+0xc>
  2007388:	e3a03039 	mov	r3, #57	; 0x39
  200738c:	e3e05000 	mvn	r5, #0
  2007390:	e10153a2 	smlatb	r1, r2, r3, r5
@@ -5606,7 +5606,7 @@ Disassembly of section .text:
  200758c:	e3a03cc3 	mov	r3, #49920	; 0xc300
  2007590:	e3a05000 	mov	r5, #0
  2007594:	e1215382 	smlawb	r1, r2, r3, r5
- 2007598:	e59f7700 	ldr	r7, [pc, #1792]	; 2007ca0 <buffer+0xc>
+ 2007598:	e59f7700 	ldr	r7, [pc, #1792]	; 2007ca0 <fail_test_ldm_stm+0x10>
  200759c:	e1510007 	cmp	r1, r7
  20075a0:	1afff621 	bne	2004e2c <fail_test>
  20075a4:	e10f5000 	mrs	r5, CPSR
@@ -5663,7 +5663,7 @@ Disassembly of section .text:
  2007668:	e3e03044 	mvn	r3, #68	; 0x44
  200766c:	e1a02582 	lsl	r2, r2, #11
  2007670:	e12103a2 	smulwb	r1, r2, r3
- 2007674:	e59f7628 	ldr	r7, [pc, #1576]	; 2007ca4 <buffer+0x10>
+ 2007674:	e59f7628 	ldr	r7, [pc, #1576]	; 2007ca4 <fail_test_ldm_stm+0x14>
  2007678:	e1510007 	cmp	r1, r7
  200767c:	1afff5ea 	bne	2004e2c <fail_test>
  2007680:	e3a00005 	mov	r0, #5
@@ -5671,7 +5671,7 @@ Disassembly of section .text:
  2007688:	e282209a 	add	r2, r2, #154	; 0x9a
  200768c:	e3a03301 	mov	r3, #67108864	; 0x4000000
  2007690:	e12103e2 	smulwt	r1, r2, r3
- 2007694:	e59f760c 	ldr	r7, [pc, #1548]	; 2007ca8 <buffer+0x14>
+ 2007694:	e59f760c 	ldr	r7, [pc, #1548]	; 2007ca8 <fail_test_ldm_stm+0x18>
  2007698:	e1510007 	cmp	r1, r7
  200769c:	1afff5e2 	bne	2004e2c <fail_test>
  20076a0:	e3a00006 	mov	r0, #6
@@ -5702,15 +5702,15 @@ Disassembly of section .text:
  20076fc:	e3720001 	cmn	r2, #1
  2007700:	1afff5c9 	bne	2004e2c <fail_test>
  2007704:	e3a00002 	mov	r0, #2
- 2007708:	e59f159c 	ldr	r1, [pc, #1436]	; 2007cac <buffer+0x18>
+ 2007708:	e59f159c 	ldr	r1, [pc, #1436]	; 2007cac <fail_test_ldm_stm+0x1c>
  200770c:	e1a02001 	mov	r2, r1
  2007710:	e3a03c47 	mov	r3, #18176	; 0x4700
  2007714:	e3a04e6d 	mov	r4, #1744	; 0x6d0
  2007718:	e1421483 	smlalbb	r1, r2, r3, r4
- 200771c:	e59f758c 	ldr	r7, [pc, #1420]	; 2007cb0 <buffer+0x1c>
+ 200771c:	e59f758c 	ldr	r7, [pc, #1420]	; 2007cb0 <fail_test_ldm_stm+0x20>
  2007720:	e1510007 	cmp	r1, r7
  2007724:	1afff5c0 	bne	2004e2c <fail_test>
- 2007728:	e59f757c 	ldr	r7, [pc, #1404]	; 2007cac <buffer+0x18>
+ 2007728:	e59f757c 	ldr	r7, [pc, #1404]	; 2007cac <fail_test_ldm_stm+0x1c>
  200772c:	e1520007 	cmp	r2, r7
  2007730:	1afff5bd 	bne	2004e2c <fail_test>
  2007734:	e3a00003 	mov	r0, #3
@@ -5730,7 +5730,7 @@ Disassembly of section .text:
  200776c:	e3e03006 	mvn	r3, #6
  2007770:	e3a04815 	mov	r4, #1376256	; 0x150000
  2007774:	e14214c3 	smlalbt	r1, r2, r3, r4
- 2007778:	e59f7534 	ldr	r7, [pc, #1332]	; 2007cb4 <buffer+0x20>
+ 2007778:	e59f7534 	ldr	r7, [pc, #1332]	; 2007cb4 <fail_test_ldm_stm+0x24>
  200777c:	e1510007 	cmp	r1, r7
  2007780:	1afff5a9 	bne	2004e2c <fail_test>
  2007784:	e3520008 	cmp	r2, #8
@@ -5744,9 +5744,9 @@ Disassembly of section .text:
 
 020077a4 <run_tests_armv5_blx>:
  20077a4:	e92d40e0 	push	{r5, r6, r7, r14}
- 20077a8:	e59f3508 	ldr	r3, [pc, #1288]	; 2007cb8 <buffer+0x24>
- 20077ac:	e59f5508 	ldr	r5, [pc, #1288]	; 2007cbc <buffer+0x28>
- 20077b0:	e59f6508 	ldr	r6, [pc, #1288]	; 2007cc0 <buffer+0x2c>
+ 20077a8:	e59f3508 	ldr	r3, [pc, #1288]	; 2007cb8 <fail_test_ldm_stm+0x28>
+ 20077ac:	e59f5508 	ldr	r5, [pc, #1288]	; 2007cbc <fail_test_ldm_stm+0x2c>
+ 20077b0:	e59f6508 	ldr	r6, [pc, #1288]	; 2007cc0 <fail_test_ldm_stm+0x30>
  20077b4:	e3a00000 	mov	r0, #0
  20077b8:	e3c51001 	bic	r1, r5, #1
  20077bc:	e1a0e00f 	mov	r14, r15
@@ -5806,20 +5806,20 @@ Disassembly of section .text:
 
 02007854 <run_tests_armv5_ldrpopr15>:
  2007854:	e92d40e0 	push	{r5, r6, r7, r14}
- 2007858:	e59f3458 	ldr	r3, [pc, #1112]	; 2007cb8 <buffer+0x24>
- 200785c:	e59f5458 	ldr	r5, [pc, #1112]	; 2007cbc <buffer+0x28>
- 2007860:	e59f6458 	ldr	r6, [pc, #1112]	; 2007cc0 <buffer+0x2c>
- 2007864:	e58f5428 	str	r5, [pc, #1064]	; 2007c94 <buffer>
+ 2007858:	e59f3458 	ldr	r3, [pc, #1112]	; 2007cb8 <fail_test_ldm_stm+0x28>
+ 200785c:	e59f5458 	ldr	r5, [pc, #1112]	; 2007cbc <fail_test_ldm_stm+0x2c>
+ 2007860:	e59f6458 	ldr	r6, [pc, #1112]	; 2007cc0 <fail_test_ldm_stm+0x30>
+ 2007864:	e58f50d8 	str	r5, [pc, #216]	; 2007944 <buffer>
  2007868:	e3852001 	orr	r2, r5, #1
- 200786c:	e58f2424 	str	r2, [pc, #1060]	; 2007c98 <buffer+0x4>
+ 200786c:	e58f20d4 	str	r2, [pc, #212]	; 2007948 <buffer+0x4>
  2007870:	e3a00000 	mov	r0, #0
  2007874:	e1a0e00f 	mov	r14, r15
- 2007878:	e59ff414 	ldr	r15, [pc, #1044]	; 2007c94 <buffer>
+ 2007878:	e59ff0c4 	ldr	r15, [pc, #196]	; 2007944 <buffer>
  200787c:	e3570001 	cmp	r7, #1
  2007880:	1afff569 	bne	2004e2c <fail_test>
  2007884:	e3a00001 	mov	r0, #1
  2007888:	e1a0e00f 	mov	r14, r15
- 200788c:	e59ff404 	ldr	r15, [pc, #1028]	; 2007c98 <buffer+0x4>
+ 200788c:	e59ff0b4 	ldr	r15, [pc, #180]	; 2007948 <buffer+0x4>
  2007890:	e3570002 	cmp	r7, #2
  2007894:	1afff564 	bne	2004e2c <fail_test>
  2007898:	e3a00002 	mov	r0, #2
@@ -5892,204 +5892,204 @@ Disassembly of section .text:
  200793e:	4708      	bx	r1
  2007940:	e8bd80e0 	pop	{r5, r6, r7, r15}
 
-02007944 <wrong>:
- 2007944:	11111111 	tstne	r1, r1, lsl r1
- 2007948:	11111111 	tstne	r1, r1, lsl r1
+02007944 <buffer>:
+	...
+
+0200794c <wrong>:
  200794c:	11111111 	tstne	r1, r1, lsl r1
  2007950:	11111111 	tstne	r1, r1, lsl r1
  2007954:	11111111 	tstne	r1, r1, lsl r1
  2007958:	11111111 	tstne	r1, r1, lsl r1
+ 200795c:	11111111 	tstne	r1, r1, lsl r1
+ 2007960:	11111111 	tstne	r1, r1, lsl r1
 
-0200795c <random_data>:
- 200795c:	c0ffeeab 	rscsgt	r14, r15, r11, lsr #29
- 2007960:	deadbeef 	cdple	14, 10, cr11, cr13, cr15, {7}
- 2007964:	d00dfeed 	andle	r15, r13, r13, ror #29
- 2007968:	c0cac01a 	sbcgt	r12, r10, r10, lsl r0
- 200796c:	01234567 			; <UNDEFINED> instruction: 0x01234567
- 2007970:	89abcdef 	stmibhi	r11!, {r0, r1, r2, r3, r5, r6, r7, r8, r10, r11, r14, r15}
+02007964 <random_data>:
+ 2007964:	c0ffeeab 	rscsgt	r14, r15, r11, lsr #29
+ 2007968:	deadbeef 	cdple	14, 10, cr11, cr13, cr15, {7}
+ 200796c:	d00dfeed 	andle	r15, r13, r13, ror #29
+ 2007970:	c0cac01a 	sbcgt	r12, r10, r10, lsl r0
+ 2007974:	01234567 			; <UNDEFINED> instruction: 0x01234567
+ 2007978:	89abcdef 	stmibhi	r11!, {r0, r1, r2, r3, r5, r6, r7, r8, r10, r11, r14, r15}
 
-02007974 <old_state>:
+0200797c <old_state>:
 	...
 
-020079b4 <overwrite_me>:
+020079bc <overwrite_me>:
 	...
 
-020079f4 <run_tests_armv5_ldm_stm>:
- 20079f4:	e59f02c8 	ldr	r0, [pc, #712]	; 2007cc4 <buffer+0x30>
- 20079f8:	e8a06ffe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
- 20079fc:	e3a00000 	mov	r0, #0
- 2007a00:	e59f12c0 	ldr	r1, [pc, #704]	; 2007cc8 <buffer+0x34>
- 2007a04:	e8b10004 	ldm	r1!, {r2}
- 2007a08:	e59f32b8 	ldr	r3, [pc, #696]	; 2007cc8 <buffer+0x34>
- 2007a0c:	e5933000 	ldr	r3, [r3]
- 2007a10:	e1530002 	cmp	r3, r2
- 2007a14:	1a00009b 	bne	2007c88 <fail_test_ldm_stm>
- 2007a18:	e2800001 	add	r0, r0, #1
- 2007a1c:	e59f32a4 	ldr	r3, [pc, #676]	; 2007cc8 <buffer+0x34>
- 2007a20:	e2833004 	add	r3, r3, #4
- 2007a24:	e1530001 	cmp	r3, r1
- 2007a28:	1a000096 	bne	2007c88 <fail_test_ldm_stm>
- 2007a2c:	e2800001 	add	r0, r0, #1
- 2007a30:	e59f1294 	ldr	r1, [pc, #660]	; 2007ccc <buffer+0x38>
- 2007a34:	e59f228c 	ldr	r2, [pc, #652]	; 2007cc8 <buffer+0x34>
- 2007a38:	e5922000 	ldr	r2, [r2]
- 2007a3c:	e8a10004 	stmia	r1!, {r2}
- 2007a40:	e59f3280 	ldr	r3, [pc, #640]	; 2007cc8 <buffer+0x34>
- 2007a44:	e5933000 	ldr	r3, [r3]
- 2007a48:	e59f427c 	ldr	r4, [pc, #636]	; 2007ccc <buffer+0x38>
- 2007a4c:	e5944000 	ldr	r4, [r4]
- 2007a50:	e1530004 	cmp	r3, r4
- 2007a54:	1a00008b 	bne	2007c88 <fail_test_ldm_stm>
- 2007a58:	e2800001 	add	r0, r0, #1
- 2007a5c:	e59f3268 	ldr	r3, [pc, #616]	; 2007ccc <buffer+0x38>
- 2007a60:	e2833004 	add	r3, r3, #4
- 2007a64:	e1530001 	cmp	r3, r1
- 2007a68:	1a000086 	bne	2007c88 <fail_test_ldm_stm>
- 2007a6c:	e2800001 	add	r0, r0, #1
- 2007a70:	e59f1250 	ldr	r1, [pc, #592]	; 2007cc8 <buffer+0x34>
- 2007a74:	e8b10002 	ldm	r1!, {r1}
- 2007a78:	e59f3248 	ldr	r3, [pc, #584]	; 2007cc8 <buffer+0x34>
- 2007a7c:	e2833004 	add	r3, r3, #4
- 2007a80:	e1530001 	cmp	r3, r1
- 2007a84:	1a00007f 	bne	2007c88 <fail_test_ldm_stm>
- 2007a88:	e2800001 	add	r0, r0, #1
- 2007a8c:	e59f3234 	ldr	r3, [pc, #564]	; 2007cc8 <buffer+0x34>
- 2007a90:	e8b3000e 	ldm	r3!, {r1, r2, r3}
- 2007a94:	e59f422c 	ldr	r4, [pc, #556]	; 2007cc8 <buffer+0x34>
- 2007a98:	e4945004 	ldr	r5, [r4], #4
- 2007a9c:	e1550001 	cmp	r5, r1
- 2007aa0:	1a000078 	bne	2007c88 <fail_test_ldm_stm>
- 2007aa4:	e2800001 	add	r0, r0, #1
- 2007aa8:	e4945004 	ldr	r5, [r4], #4
- 2007aac:	e1550002 	cmp	r5, r2
- 2007ab0:	1a000074 	bne	2007c88 <fail_test_ldm_stm>
- 2007ab4:	e2800001 	add	r0, r0, #1
- 2007ab8:	e4945004 	ldr	r5, [r4], #4
- 2007abc:	e1550003 	cmp	r5, r3
- 2007ac0:	1a000070 	bne	2007c88 <fail_test_ldm_stm>
- 2007ac4:	e2800001 	add	r0, r0, #1
- 2007ac8:	e59f21f8 	ldr	r2, [pc, #504]	; 2007cc8 <buffer+0x34>
- 2007acc:	e8b2000e 	ldm	r2!, {r1, r2, r3}
- 2007ad0:	e59f41f0 	ldr	r4, [pc, #496]	; 2007cc8 <buffer+0x34>
- 2007ad4:	e4945008 	ldr	r5, [r4], #8
- 2007ad8:	e1550001 	cmp	r5, r1
- 2007adc:	1a000069 	bne	2007c88 <fail_test_ldm_stm>
- 2007ae0:	e2800001 	add	r0, r0, #1
- 2007ae4:	e4945004 	ldr	r5, [r4], #4
- 2007ae8:	e1550003 	cmp	r5, r3
- 2007aec:	1a000065 	bne	2007c88 <fail_test_ldm_stm>
- 2007af0:	e2800001 	add	r0, r0, #1
- 2007af4:	e59f11cc 	ldr	r1, [pc, #460]	; 2007cc8 <buffer+0x34>
- 2007af8:	e281100c 	add	r1, r1, #12
- 2007afc:	e1510002 	cmp	r1, r2
- 2007b00:	1a000060 	bne	2007c88 <fail_test_ldm_stm>
- 2007b04:	e2800001 	add	r0, r0, #1
- 2007b08:	e59f21b8 	ldr	r2, [pc, #440]	; 2007cc8 <buffer+0x34>
- 2007b0c:	e8b20000 	ldm	r2!, {}	; <UNPREDICTABLE>
- 2007b10:	e59f31b0 	ldr	r3, [pc, #432]	; 2007cc8 <buffer+0x34>
- 2007b14:	e2833040 	add	r3, r3, #64	; 0x40
- 2007b18:	e1530002 	cmp	r3, r2
- 2007b1c:	1a000059 	bne	2007c88 <fail_test_ldm_stm>
- 2007b20:	e2800001 	add	r0, r0, #1
- 2007b24:	e59fd1a4 	ldr	r13, [pc, #420]	; 2007cd0 <buffer+0x3c>
- 2007b28:	e3a0e000 	mov	r14, #0
- 2007b2c:	e3a01012 	mov	r1, #18
- 2007b30:	e129f001 	msr	CPSR_fc, r1
- 2007b34:	e59fd18c 	ldr	r13, [pc, #396]	; 2007cc8 <buffer+0x34>
- 2007b38:	e3a0e000 	mov	r14, #0
- 2007b3c:	e8fd4000 	ldm	r13!, {r14}^
- 2007b40:	e3a03000 	mov	r3, #0
- 2007b44:	e153000e 	cmp	r3, r14
- 2007b48:	1a00004e 	bne	2007c88 <fail_test_ldm_stm>
- 2007b4c:	e2800001 	add	r0, r0, #1
- 2007b50:	e59f3170 	ldr	r3, [pc, #368]	; 2007cc8 <buffer+0x34>
- 2007b54:	e2833004 	add	r3, r3, #4
- 2007b58:	e153000d 	cmp	r3, r13
- 2007b5c:	1a000049 	bne	2007c88 <fail_test_ldm_stm>
- 2007b60:	e2800001 	add	r0, r0, #1
- 2007b64:	e3a0101f 	mov	r1, #31
- 2007b68:	e129f001 	msr	CPSR_fc, r1
- 2007b6c:	e59f3154 	ldr	r3, [pc, #340]	; 2007cc8 <buffer+0x34>
- 2007b70:	e5933000 	ldr	r3, [r3]
- 2007b74:	e153000e 	cmp	r3, r14
- 2007b78:	1a000042 	bne	2007c88 <fail_test_ldm_stm>
- 2007b7c:	e2800001 	add	r0, r0, #1
- 2007b80:	e59f3148 	ldr	r3, [pc, #328]	; 2007cd0 <buffer+0x3c>
- 2007b84:	e153000d 	cmp	r3, r13
- 2007b88:	1a00003e 	bne	2007c88 <fail_test_ldm_stm>
- 2007b8c:	e2800001 	add	r0, r0, #1
- 2007b90:	e59fd138 	ldr	r13, [pc, #312]	; 2007cd0 <buffer+0x3c>
- 2007b94:	e3a01012 	mov	r1, #18
- 2007b98:	e129f001 	msr	CPSR_fc, r1
- 2007b9c:	e59fd124 	ldr	r13, [pc, #292]	; 2007cc8 <buffer+0x34>
- 2007ba0:	e8dd2000 	ldm	r13, {r13}^
- 2007ba4:	e59f311c 	ldr	r3, [pc, #284]	; 2007cc8 <buffer+0x34>
- 2007ba8:	e153000d 	cmp	r3, r13
- 2007bac:	1a000035 	bne	2007c88 <fail_test_ldm_stm>
- 2007bb0:	e2800001 	add	r0, r0, #1
- 2007bb4:	e3a0101f 	mov	r1, #31
- 2007bb8:	e129f001 	msr	CPSR_fc, r1
- 2007bbc:	e59f3104 	ldr	r3, [pc, #260]	; 2007cc8 <buffer+0x34>
- 2007bc0:	e5933000 	ldr	r3, [r3]
- 2007bc4:	e153000d 	cmp	r3, r13
- 2007bc8:	1a00002e 	bne	2007c88 <fail_test_ldm_stm>
- 2007bcc:	e2800001 	add	r0, r0, #1
- 2007bd0:	e59f10f4 	ldr	r1, [pc, #244]	; 2007ccc <buffer+0x38>
- 2007bd4:	e8a10002 	stmia	r1!, {r1}
- 2007bd8:	e59f30ec 	ldr	r3, [pc, #236]	; 2007ccc <buffer+0x38>
- 2007bdc:	e2833004 	add	r3, r3, #4
- 2007be0:	e1530001 	cmp	r3, r1
- 2007be4:	1a000027 	bne	2007c88 <fail_test_ldm_stm>
- 2007be8:	e2800001 	add	r0, r0, #1
- 2007bec:	e59f30d8 	ldr	r3, [pc, #216]	; 2007ccc <buffer+0x38>
- 2007bf0:	e5932000 	ldr	r2, [r3]
- 2007bf4:	e1520003 	cmp	r2, r3
- 2007bf8:	1a000022 	bne	2007c88 <fail_test_ldm_stm>
- 2007bfc:	e2800001 	add	r0, r0, #1
- 2007c00:	e59f30c0 	ldr	r3, [pc, #192]	; 2007cc8 <buffer+0x34>
- 2007c04:	e4932004 	ldr	r2, [r3], #4
- 2007c08:	e4931004 	ldr	r1, [r3], #4
- 2007c0c:	e59f30b8 	ldr	r3, [pc, #184]	; 2007ccc <buffer+0x38>
- 2007c10:	e8a3000e 	stmia	r3!, {r1, r2, r3}
- 2007c14:	e59f40ac 	ldr	r4, [pc, #172]	; 2007cc8 <buffer+0x34>
- 2007c18:	e5944004 	ldr	r4, [r4, #4]
- 2007c1c:	e59f50a8 	ldr	r5, [pc, #168]	; 2007ccc <buffer+0x38>
- 2007c20:	e5955000 	ldr	r5, [r5]
- 2007c24:	e1540005 	cmp	r4, r5
- 2007c28:	1a000016 	bne	2007c88 <fail_test_ldm_stm>
- 2007c2c:	e2800001 	add	r0, r0, #1
- 2007c30:	e59f4090 	ldr	r4, [pc, #144]	; 2007cc8 <buffer+0x34>
- 2007c34:	e5944000 	ldr	r4, [r4]
- 2007c38:	e59f508c 	ldr	r5, [pc, #140]	; 2007ccc <buffer+0x38>
- 2007c3c:	e5955004 	ldr	r5, [r5, #4]
- 2007c40:	e1540005 	cmp	r4, r5
- 2007c44:	1a00000f 	bne	2007c88 <fail_test_ldm_stm>
- 2007c48:	e2800001 	add	r0, r0, #1
- 2007c4c:	e59f4078 	ldr	r4, [pc, #120]	; 2007ccc <buffer+0x38>
- 2007c50:	e284400c 	add	r4, r4, #12
- 2007c54:	e59f5070 	ldr	r5, [pc, #112]	; 2007ccc <buffer+0x38>
- 2007c58:	e5955008 	ldr	r5, [r5, #8]
- 2007c5c:	e1540005 	cmp	r4, r5
- 2007c60:	1a000008 	bne	2007c88 <fail_test_ldm_stm>
- 2007c64:	e2800001 	add	r0, r0, #1
- 2007c68:	e59f405c 	ldr	r4, [pc, #92]	; 2007ccc <buffer+0x38>
- 2007c6c:	e284400c 	add	r4, r4, #12
- 2007c70:	e1540003 	cmp	r4, r3
- 2007c74:	1a000003 	bne	2007c88 <fail_test_ldm_stm>
- 2007c78:	e2800001 	add	r0, r0, #1
+020079fc <run_tests_armv5_ldm_stm>:
+ 20079fc:	e59f02c0 	ldr	r0, [pc, #704]	; 2007cc4 <fail_test_ldm_stm+0x34>
+ 2007a00:	e8a06ffe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
+ 2007a04:	e3a00000 	mov	r0, #0
+ 2007a08:	e59f12b8 	ldr	r1, [pc, #696]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a0c:	e8b10004 	ldm	r1!, {r2}
+ 2007a10:	e59f32b0 	ldr	r3, [pc, #688]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a14:	e5933000 	ldr	r3, [r3]
+ 2007a18:	e1530002 	cmp	r3, r2
+ 2007a1c:	1a00009b 	bne	2007c90 <fail_test_ldm_stm>
+ 2007a20:	e2800001 	add	r0, r0, #1
+ 2007a24:	e59f329c 	ldr	r3, [pc, #668]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a28:	e2833004 	add	r3, r3, #4
+ 2007a2c:	e1530001 	cmp	r3, r1
+ 2007a30:	1a000096 	bne	2007c90 <fail_test_ldm_stm>
+ 2007a34:	e2800001 	add	r0, r0, #1
+ 2007a38:	e59f128c 	ldr	r1, [pc, #652]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007a3c:	e59f2284 	ldr	r2, [pc, #644]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a40:	e5922000 	ldr	r2, [r2]
+ 2007a44:	e8a10004 	stmia	r1!, {r2}
+ 2007a48:	e59f3278 	ldr	r3, [pc, #632]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a4c:	e5933000 	ldr	r3, [r3]
+ 2007a50:	e59f4274 	ldr	r4, [pc, #628]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007a54:	e5944000 	ldr	r4, [r4]
+ 2007a58:	e1530004 	cmp	r3, r4
+ 2007a5c:	1a00008b 	bne	2007c90 <fail_test_ldm_stm>
+ 2007a60:	e2800001 	add	r0, r0, #1
+ 2007a64:	e59f3260 	ldr	r3, [pc, #608]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007a68:	e2833004 	add	r3, r3, #4
+ 2007a6c:	e1530001 	cmp	r3, r1
+ 2007a70:	1a000086 	bne	2007c90 <fail_test_ldm_stm>
+ 2007a74:	e2800001 	add	r0, r0, #1
+ 2007a78:	e59f1248 	ldr	r1, [pc, #584]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a7c:	e8b10002 	ldm	r1!, {r1}
+ 2007a80:	e59f3240 	ldr	r3, [pc, #576]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a84:	e2833004 	add	r3, r3, #4
+ 2007a88:	e1530001 	cmp	r3, r1
+ 2007a8c:	1a00007f 	bne	2007c90 <fail_test_ldm_stm>
+ 2007a90:	e2800001 	add	r0, r0, #1
+ 2007a94:	e59f322c 	ldr	r3, [pc, #556]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007a98:	e8b3000e 	ldm	r3!, {r1, r2, r3}
+ 2007a9c:	e59f4224 	ldr	r4, [pc, #548]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007aa0:	e4945004 	ldr	r5, [r4], #4
+ 2007aa4:	e1550001 	cmp	r5, r1
+ 2007aa8:	1a000078 	bne	2007c90 <fail_test_ldm_stm>
+ 2007aac:	e2800001 	add	r0, r0, #1
+ 2007ab0:	e4945004 	ldr	r5, [r4], #4
+ 2007ab4:	e1550002 	cmp	r5, r2
+ 2007ab8:	1a000074 	bne	2007c90 <fail_test_ldm_stm>
+ 2007abc:	e2800001 	add	r0, r0, #1
+ 2007ac0:	e4945004 	ldr	r5, [r4], #4
+ 2007ac4:	e1550003 	cmp	r5, r3
+ 2007ac8:	1a000070 	bne	2007c90 <fail_test_ldm_stm>
+ 2007acc:	e2800001 	add	r0, r0, #1
+ 2007ad0:	e59f21f0 	ldr	r2, [pc, #496]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007ad4:	e8b2000e 	ldm	r2!, {r1, r2, r3}
+ 2007ad8:	e59f41e8 	ldr	r4, [pc, #488]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007adc:	e4945008 	ldr	r5, [r4], #8
+ 2007ae0:	e1550001 	cmp	r5, r1
+ 2007ae4:	1a000069 	bne	2007c90 <fail_test_ldm_stm>
+ 2007ae8:	e2800001 	add	r0, r0, #1
+ 2007aec:	e4945004 	ldr	r5, [r4], #4
+ 2007af0:	e1550003 	cmp	r5, r3
+ 2007af4:	1a000065 	bne	2007c90 <fail_test_ldm_stm>
+ 2007af8:	e2800001 	add	r0, r0, #1
+ 2007afc:	e59f11c4 	ldr	r1, [pc, #452]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b00:	e281100c 	add	r1, r1, #12
+ 2007b04:	e1510002 	cmp	r1, r2
+ 2007b08:	1a000060 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b0c:	e2800001 	add	r0, r0, #1
+ 2007b10:	e59f21b0 	ldr	r2, [pc, #432]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b14:	e8b20000 	ldm	r2!, {}	; <UNPREDICTABLE>
+ 2007b18:	e59f31a8 	ldr	r3, [pc, #424]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b1c:	e2833040 	add	r3, r3, #64	; 0x40
+ 2007b20:	e1530002 	cmp	r3, r2
+ 2007b24:	1a000059 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b28:	e2800001 	add	r0, r0, #1
+ 2007b2c:	e59fd19c 	ldr	r13, [pc, #412]	; 2007cd0 <fail_test_ldm_stm+0x40>
+ 2007b30:	e3a0e000 	mov	r14, #0
+ 2007b34:	e3a01012 	mov	r1, #18
+ 2007b38:	e129f001 	msr	CPSR_fc, r1
+ 2007b3c:	e59fd184 	ldr	r13, [pc, #388]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b40:	e3a0e000 	mov	r14, #0
+ 2007b44:	e8fd4000 	ldm	r13!, {r14}^
+ 2007b48:	e3a03000 	mov	r3, #0
+ 2007b4c:	e153000e 	cmp	r3, r14
+ 2007b50:	1a00004e 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b54:	e2800001 	add	r0, r0, #1
+ 2007b58:	e59f3168 	ldr	r3, [pc, #360]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b5c:	e2833004 	add	r3, r3, #4
+ 2007b60:	e153000d 	cmp	r3, r13
+ 2007b64:	1a000049 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b68:	e2800001 	add	r0, r0, #1
+ 2007b6c:	e3a0101f 	mov	r1, #31
+ 2007b70:	e129f001 	msr	CPSR_fc, r1
+ 2007b74:	e59f314c 	ldr	r3, [pc, #332]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007b78:	e5933000 	ldr	r3, [r3]
+ 2007b7c:	e153000e 	cmp	r3, r14
+ 2007b80:	1a000042 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b84:	e2800001 	add	r0, r0, #1
+ 2007b88:	e59f3140 	ldr	r3, [pc, #320]	; 2007cd0 <fail_test_ldm_stm+0x40>
+ 2007b8c:	e153000d 	cmp	r3, r13
+ 2007b90:	1a00003e 	bne	2007c90 <fail_test_ldm_stm>
+ 2007b94:	e2800001 	add	r0, r0, #1
+ 2007b98:	e59fd130 	ldr	r13, [pc, #304]	; 2007cd0 <fail_test_ldm_stm+0x40>
+ 2007b9c:	e3a01012 	mov	r1, #18
+ 2007ba0:	e129f001 	msr	CPSR_fc, r1
+ 2007ba4:	e59fd11c 	ldr	r13, [pc, #284]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007ba8:	e8dd2000 	ldm	r13, {r13}^
+ 2007bac:	e59f3114 	ldr	r3, [pc, #276]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007bb0:	e153000d 	cmp	r3, r13
+ 2007bb4:	1a000035 	bne	2007c90 <fail_test_ldm_stm>
+ 2007bb8:	e2800001 	add	r0, r0, #1
+ 2007bbc:	e3a0101f 	mov	r1, #31
+ 2007bc0:	e129f001 	msr	CPSR_fc, r1
+ 2007bc4:	e59f30fc 	ldr	r3, [pc, #252]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007bc8:	e5933000 	ldr	r3, [r3]
+ 2007bcc:	e153000d 	cmp	r3, r13
+ 2007bd0:	1a00002e 	bne	2007c90 <fail_test_ldm_stm>
+ 2007bd4:	e2800001 	add	r0, r0, #1
+ 2007bd8:	e59f10ec 	ldr	r1, [pc, #236]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007bdc:	e8a10002 	stmia	r1!, {r1}
+ 2007be0:	e59f30e4 	ldr	r3, [pc, #228]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007be4:	e2833004 	add	r3, r3, #4
+ 2007be8:	e1530001 	cmp	r3, r1
+ 2007bec:	1a000027 	bne	2007c90 <fail_test_ldm_stm>
+ 2007bf0:	e2800001 	add	r0, r0, #1
+ 2007bf4:	e59f30d0 	ldr	r3, [pc, #208]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007bf8:	e5932000 	ldr	r2, [r3]
+ 2007bfc:	e1520003 	cmp	r2, r3
+ 2007c00:	1a000022 	bne	2007c90 <fail_test_ldm_stm>
+ 2007c04:	e2800001 	add	r0, r0, #1
+ 2007c08:	e59f30b8 	ldr	r3, [pc, #184]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007c0c:	e4932004 	ldr	r2, [r3], #4
+ 2007c10:	e4931004 	ldr	r1, [r3], #4
+ 2007c14:	e59f30b0 	ldr	r3, [pc, #176]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c18:	e8a3000e 	stmia	r3!, {r1, r2, r3}
+ 2007c1c:	e59f40a4 	ldr	r4, [pc, #164]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007c20:	e5944004 	ldr	r4, [r4, #4]
+ 2007c24:	e59f50a0 	ldr	r5, [pc, #160]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c28:	e5955000 	ldr	r5, [r5]
+ 2007c2c:	e1540005 	cmp	r4, r5
+ 2007c30:	1a000016 	bne	2007c90 <fail_test_ldm_stm>
+ 2007c34:	e2800001 	add	r0, r0, #1
+ 2007c38:	e59f4088 	ldr	r4, [pc, #136]	; 2007cc8 <fail_test_ldm_stm+0x38>
+ 2007c3c:	e5944000 	ldr	r4, [r4]
+ 2007c40:	e59f5084 	ldr	r5, [pc, #132]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c44:	e5955004 	ldr	r5, [r5, #4]
+ 2007c48:	e1540005 	cmp	r4, r5
+ 2007c4c:	1a00000f 	bne	2007c90 <fail_test_ldm_stm>
+ 2007c50:	e2800001 	add	r0, r0, #1
+ 2007c54:	e59f4070 	ldr	r4, [pc, #112]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c58:	e284400c 	add	r4, r4, #12
+ 2007c5c:	e59f5068 	ldr	r5, [pc, #104]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c60:	e5955008 	ldr	r5, [r5, #8]
+ 2007c64:	e1540005 	cmp	r4, r5
+ 2007c68:	1a000008 	bne	2007c90 <fail_test_ldm_stm>
+ 2007c6c:	e2800001 	add	r0, r0, #1
+ 2007c70:	e59f4054 	ldr	r4, [pc, #84]	; 2007ccc <fail_test_ldm_stm+0x3c>
+ 2007c74:	e284400c 	add	r4, r4, #12
+ 2007c78:	e1540003 	cmp	r4, r3
+ 2007c7c:	1a000003 	bne	2007c90 <fail_test_ldm_stm>
+ 2007c80:	e2800001 	add	r0, r0, #1
 
-02007c7c <end_test>:
- 2007c7c:	e59fc040 	ldr	r12, [pc, #64]	; 2007cc4 <buffer+0x30>
- 2007c80:	e8bc6ffe 	ldm	r12!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
- 2007c84:	e12fff1e 	bx	r14
+02007c84 <end_test>:
+ 2007c84:	e59fc038 	ldr	r12, [pc, #56]	; 2007cc4 <fail_test_ldm_stm+0x34>
+ 2007c88:	e8bc6ffe 	ldm	r12!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
+ 2007c8c:	e12fff1e 	bx	r14
 
-02007c88 <fail_test_ldm_stm>:
- 2007c88:	e59fc034 	ldr	r12, [pc, #52]	; 2007cc4 <buffer+0x30>
- 2007c8c:	e8bc6ffe 	ldm	r12!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
- 2007c90:	eafff465 	b	2004e2c <fail_test>
-
-02007c94 <buffer>:
-	...
+02007c90 <fail_test_ldm_stm>:
+ 2007c90:	e59fc02c 	ldr	r12, [pc, #44]	; 2007cc4 <fail_test_ldm_stm+0x34>
+ 2007c94:	e8bc6ffe 	ldm	r12!, {r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r13, r14}
+ 2007c98:	eafff463 	b	2004e2c <fail_test>
  2007c9c:	fffc1234 			; <UNDEFINED> instruction: 0xfffc1234
  2007ca0:	fffffeda 			; <UNDEFINED> instruction: 0xfffffeda
  2007ca4:	00000207 	andeq	r0, r0, r7, lsl #4
@@ -6100,10 +6100,10 @@ Disassembly of section .text:
  2007cb8:	02004e2c 	andeq	r4, r0, #44, 28	; 0x2c0
  2007cbc:	02002ccc 	andeq	r2, r0, #204, 24	; 0xcc00
  2007cc0:	02002cd8 	andeq	r2, r0, #216, 24	; 0xd800
- 2007cc4:	02007974 	andeq	r7, r0, #116, 18	; 0x1d0000
- 2007cc8:	0200795c 	andeq	r7, r0, #92, 18	; 0x170000
- 2007ccc:	020079b4 	andeq	r7, r0, #180, 18	; 0x2d0000
- 2007cd0:	02007944 	andeq	r7, r0, #68, 18	; 0x110000
+ 2007cc4:	0200797c 	andeq	r7, r0, #124, 18	; 0x1f0000
+ 2007cc8:	02007964 	andeq	r7, r0, #100, 18	; 0x190000
+ 2007ccc:	020079bc 	andeq	r7, r0, #188, 18	; 0x2f0000
+ 2007cd0:	0200794c 	andeq	r7, r0, #76, 18	; 0x130000
 
 02007cd4 <enable_trace>:
  2007cd4:	e59f3008 	ldr	r3, [pc, #8]	; 2007ce4 <enable_trace+0x10>
@@ -6441,7 +6441,7 @@ Disassembly of section .rodata:
  200812c:	02007854 	andeq	r7, r0, #84, 16	; 0x540000
  2008130:	00000000 	andeq	r0, r0, r0
  2008134:	02008f04 	andeq	r8, r0, #4, 30
- 2008138:	020079f4 	andeq	r7, r0, #244, 18	; 0x3d0000
+ 2008138:	020079fc 	andeq	r7, r0, #252, 18	; 0x3f0000
 	...
 
 0200814c <_ZL18menu_armv4_entries>:

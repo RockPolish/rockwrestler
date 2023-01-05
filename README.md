@@ -31,7 +31,7 @@ These tests try out the NDS IO registers for calculating divisions and square ro
 Tests in this submenu are not actually doing a test, but rather printing values of certain IO registers, CP15 registers, and other values at startup. There are currently no correct/wrong values here.
 
 ## Contributing
-Anyone is welcome to help and to improve existing tests or add new tests. Send me a message on Discord (join the Emudev discord) for more information.
+Anyone is welcome to help and to improve existing tests or add new tests. Send me a message on Discord (join the Emudev Discord server) for more information.
 
 ## Special thanks to
 - http://problemkaputt.de/gbatek.htm
