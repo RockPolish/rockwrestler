@@ -1528,9 +1528,7 @@ run_tests_armv5_ldm_stm:
 
     @ TEST 16
     ldr r4, =overwrite_me
-    add r4, #12
-    ldr r5, =overwrite_me
-    ldr r5, [r5, #8]
+    ldr r5, [r4, #8]
     cmp r4, r5
     bne fail_test_ldm_stm
     add r0, #1
